@@ -1,0 +1,7 @@
+[submodule "433Utils"]
+	path = 433Utils
+	url = https://github.com/dadeg/433Utils.git
+
+[submodule "wiringPi"]
+        path = wiringPi 
+        url = https://git.drogon.net/wiringPi.git
