@@ -28,6 +28,8 @@ That's it! You can see the rules referenced in https://github.com/dadeg/homeauto
 
 Sources for reference:
 
+antenna for the 433mhz transmitter should be about 17.2cm in a straight line, no need for receiver antenna because it doesn't matter the range as long as it can receive.
+
 This is where I learned how to connect the 433mhz RF transmitter and receiver.
 It led me to install WiringPi and RcSwitch, which was not needed up until this. That allowed
 me to send a command over an RF signal. Make sure to set up and export the proper pin numbers in the send.cpp file.
