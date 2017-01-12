@@ -4,4 +4,4 @@
 
 [submodule "wiringPi"]
         path = wiringPi 
-        url = https://git.drogon.net/wiringPi.git
+        url = git://git.drogon.net/wiringPi
