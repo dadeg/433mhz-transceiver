@@ -39,6 +39,6 @@ protocol = 1
 delay = 182
 
 #run the codesend command 3 times to ensure the switch doesn't miss the command
-sudo 433Utils/RPi_utils/codesend ${code} ${protocol} ${delay}
-sudo 433Utils/RPi_utils/codesend ${code} ${protocol} ${delay}
-sudo 433Utils/RPi_utils/codesend ${code} ${protocol} ${delay}
+sudo 433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+sudo 433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+sudo 433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
