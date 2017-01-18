@@ -22,7 +22,7 @@ Hooking 433 up to Openhab was as easy as setting up a rule that `executeCommandL
 Remember to set the chmod to allow the openhab user to execute the file: `chmod 777 codesend`
 
 I made a helper function that sends the code 3 times, it is `RCSwitch.sh`, you use it the same way you would codesend. Remember
-to set its chmod mode to 777 as well.
+to set its chmod mode to 777 as well, or in my case, I ran `sudo chown openhab: RCSwitch.sh`. I also had to add the `openhab` user to the sudoers list to not ask for a password when running sudo commands. To do that, I followed these directions: http://askubuntu.com/questions/39281/how-to-run-an-application-using-sudo-without-a-password/39294#39294 and added the line to a new file in the `/etc/sudoers.d` directory like the sudo file suggested. The name of the file was `openhab` and the contents were `openhab ALL = NOPASSWD: ALL`.
 
 That's it! You can see the rules referenced in https://github.com/dadeg/homeautomation/tree/master/configurations/rules
 
