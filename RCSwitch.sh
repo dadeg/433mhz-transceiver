@@ -45,15 +45,22 @@ do
 	esac 
 done
 
-#run the codesend command 5 times to ensure the switch doesn't miss the command
+#run the codesend command multiple times to ensure the switch doesn't miss the command
 
-for i in {1..10}
-do
-   for code in "${codesToSend[@]}"
-	do   
-		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
-	done
+for code in "${codesToSend[@]}"
+do   
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+	sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
 done
+
 
 
 
