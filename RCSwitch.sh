@@ -47,7 +47,7 @@ done
 
 #run the codesend command 5 times to ensure the switch doesn't miss the command
 
-for i in {1..5}
+for i in {1..10}
 do
    for code in "${codesToSend[@]}"
 	do   
