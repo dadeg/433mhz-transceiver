@@ -55,7 +55,7 @@ create_lock_or_wait () {
            break;
         fi
         if [ "$tries" -gt 4 ]; then
-        	sudo exit 123;
+        	exit 123;
         fi
         ((tries++))
         sleep $wait_time
