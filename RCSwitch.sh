@@ -49,9 +49,13 @@ done
 create_lock_or_wait () {
   path="transmitter"
   wait_time="1"
+  tries=0
   while true; do
         if sudo mkdir "${path}.lock.d"; then
            break;
+        fi
+        if tries>4; then
+        	exit 123;
         fi
         sleep $wait_time
   done
