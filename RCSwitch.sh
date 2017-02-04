@@ -47,7 +47,7 @@ done
 
 # Here is a locking mechanism to stop 2+ executions of this script from competing for the transmitter, causing all to fail.
 create_lock_or_wait () {
-  path="transmitter"
+  path="/opt/433mhz-transceiver/transmitter"
   wait_time="1"
   tries=0
   while true; do
@@ -63,7 +63,7 @@ create_lock_or_wait () {
 }
 
 remove_lock () {
-  path="transmitter"
+  path="/opt/433mhz-transceiver/transmitter"
   sudo rmdir "${path}.lock.d"
 }
 
