@@ -45,7 +45,27 @@ do
 	esac 
 done
 
+# Here is a locking mechanism to stop 2+ executions of this script from competing for the transmitter, causing all to fail.
+create_lock_or_wait () {
+  path="transmitter"
+  wait_time="1"
+  while true; do
+        if sudo mkdir "${path}.lock.d"; then
+           break;
+        fi
+        sleep $wait_time
+  done
+}
+
+remove_lock () {
+  path="transmitter"
+  sudo rmdir "${path}.lock.d"
+}
+
+
 #run the codesend command 5 times to ensure the switch doesn't miss the command
+
+create_lock_or_wait
 
 for i in {1..10}
 do
@@ -55,5 +75,6 @@ do
 	done
 done
 
+remove_lock
 
 
