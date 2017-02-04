@@ -68,11 +68,11 @@ remove_lock () {
 }
 
 
-#run the codesend command 5 times to ensure the switch doesn't miss the command
+#run the codesend command n times to ensure the switch doesn't miss the command
 
 create_lock_or_wait
 
-for i in {1..10}
+for i in {1..5}
 do
    for code in "${codesToSend[@]}"
 	do   
