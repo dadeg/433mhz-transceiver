@@ -54,9 +54,10 @@ create_lock_or_wait () {
         if sudo mkdir "${path}.lock.d"; then
            break;
         fi
-        if tries>4; then
-        	exit 123;
+        if [ "$tries" -gt 4 ]; then
+        	sudo exit 123;
         fi
+        ((tries++))
         sleep $wait_time
   done
 }
