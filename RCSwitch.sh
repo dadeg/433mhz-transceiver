@@ -85,6 +85,7 @@ do
    for code in "${codesToSend[@]}"
 	do   
 		# arguments code, protocol, delay
+		echo "${code[@]}"
 		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend ${code[0]} ${code[1]} ${code[2]}
 	done
 done
