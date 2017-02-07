@@ -13,11 +13,7 @@ for codeName in "$@"
 do
 	case ${codeName} in 
 	   "0330_1_on") 
-	   	  code=()
-	   	  code+=("4199731")
-	   	  code+=("1")
-	   	  code+=("182")
-	      codesToSend+=(code)
+	      codesToSend+=(("4199731" "1" "182"))
 	      ;;  
 	   "0330_1_off")  
 	   	  code=()
