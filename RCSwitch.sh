@@ -13,14 +13,10 @@ for codeName in "$@"
 do
 	case ${codeName} in 
 	   "0330_1_on") 
-	      codesToSend+=(("4199731" "1" "182"))
+	      codesToSend+=("4199731 1 182")
 	      ;;  
 	   "0330_1_off")  
-	   	  code=()
-	   	  code+=("4199740")
-	   	  code+=("1")
-	   	  code+=("182")
-	      codesToSend+=(code)
+	      codesToSend+=("4199740 1 182")
 	      ;; 
 	   "0330_2_on")  
 	      codesToSend+=("4199875")
@@ -80,9 +76,7 @@ for i in {1..5}
 do
    for code in "${codesToSend[@]}"
 	do   
-		# arguments code, protocol, delay
-		echo "${code[@]}"
-		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend ${code[0]} ${code[1]} ${code[2]}
+		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code"
 	done
 done
 
