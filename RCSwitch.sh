@@ -76,7 +76,7 @@ for i in {1..5}
 do
    for code in "${codesToSend[@]}"
 	do   
-		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code"
+		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend $code
 	done
 done
 
