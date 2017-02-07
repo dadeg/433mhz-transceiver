@@ -133,7 +133,7 @@ remove_lock () {
 
 create_lock_or_wait
 
-for i in {1..5}
+for i in {1..3}
 do
    for code in "${codesToSend[@]}"
 	do   
