@@ -12,34 +12,42 @@ codesToSend=()
 for codeName in "$@"
 do
 	case ${codeName} in 
-	   "1_on")  
-	      codesToSend+=("4199731")
+	   "0330_1_on") 
+	   	  code=()
+	   	  code+=("4199731")
+	   	  code+=("1")
+	   	  code+=("182")
+	      codesToSend+=(code)
 	      ;;  
-	   "1_off")  
-	      codesToSend+=("4199740")
+	   "0330_1_off")  
+	   	  code=()
+	   	  code+=("4199740")
+	   	  code+=("1")
+	   	  code+=("182")
+	      codesToSend+=(code)
 	      ;; 
-	   "2_on")  
+	   "0330_2_on")  
 	      codesToSend+=("4199875")
 	      ;; 
-	   "2_off")  
+	   "0330_2_off")  
 	      codesToSend+=("4199884")
 	      ;; 
-	   "3_on")  
+	   "0330_3_on")  
 	      codesToSend+=("4200195")
 	      ;; 
-	   "3_off")  
+	   "0330_3_off")  
 	      codesToSend+=("4200204")
 	      ;; 
-	   "4_on")  
+	   "0330_4_on")  
 	      codesToSend+=("4201731")
 	      ;; 
-	   "4_off")  
+	   "0330_4_off")  
 	      codesToSend+=("4201740")
 	      ;; 
-	   "5_on")  
+	   "0330_5_on")  
 	      codesToSend+=("4207875")
 	      ;; 
-	   "5_off")  
+	   "0330_5_off")  
 	      codesToSend+=("4207884")
 	      ;; 
 	esac 
@@ -76,7 +84,8 @@ for i in {1..5}
 do
    for code in "${codesToSend[@]}"
 	do   
-		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code" "$protocol" "$delay"
+		# arguments code, protocol, delay
+		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend "$code[0]" "$code[1]" "$code[2]"
 	done
 done
 
