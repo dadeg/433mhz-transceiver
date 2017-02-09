@@ -1,0 +1,10 @@
+[Unit]
+ Description=433mhz Receiver Service
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/opt/433mhz-transceiver/433Utils/RPi_utils/RFSniffer | MQTT-Listener.sh
+
+ [Install]
+ WantedBy=multi-user.target
