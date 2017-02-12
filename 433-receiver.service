@@ -4,7 +4,7 @@
 
  [Service]
  Type=idle
- ExecStart=/opt/433mhz-transceiver/433Utils/RPi_utils/RFSniffer | MQTT-Listener.sh
+ ExecStart=/opt/433mhz-transceiver/433Utils/RPi_utils/RFSnifferMQTT
 
  [Install]
  WantedBy=multi-user.target
