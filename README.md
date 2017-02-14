@@ -24,7 +24,17 @@ Remember to set the chmod to allow the openhab user to execute the file: `chmod 
 I made a helper function that sends the code 3 times, it is `RCSwitch.sh`, you use it the same way you would codesend. Remember
 to set its chmod mode to 777 as well, or in my case, I ran `sudo chown openhab: RCSwitch.sh`. I also had to add the `openhab` user to the sudoers list to not ask for a password when running sudo commands. To do that, I followed these directions: http://askubuntu.com/questions/39281/how-to-run-an-application-using-sudo-without-a-password/39294#39294 and added the line to a new file in the `/etc/sudoers.d` directory like the sudo file suggested. The name of the file was `openhab` and the contents were `openhab ALL = NOPASSWD: ALL`.
 
-That's it! You can see the rules referenced in https://github.com/dadeg/homeautomation/tree/master/configurations/rules
+Listen for codes and publish to MQTT broker for motion sensors:
+
+I created the `433Utils/RPi_utils/RFSnifferMQTT` program. That script listens on the defined GPIO pin for 433mhz signals (any and all it can receive) and publishes them to and MQTT topic like `433mhz/<code>`, such as `433mhz/12343532`. Then you can have openhab2 set up with the MQTT binding to listen to specific topics for different items. You will need to set up a MQTT broker, which is not part of this library. In order to run this script at startup and in the background, I added the `433-receiver.service` file which you can copy to the service directory and enable it to run on bootup:
+
+* `cp 433-receiver.service /lib/systemd/system/`
+* `sudo chmod 644 /lib/systemd/system/433-receiver.service`
+* `sudo systemctl daemon-reload`
+* `sudo systemctl enable 433-receiver.service`
+* `sudo reboot` and it should start on boot up. Check with `systemctl status 433-receiver.service`
+
+
 
 Sources for reference:
 
