@@ -1,0 +1,10 @@
+[Unit]
+ Description=315mhz Receiver Service
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/opt/433mhz-transceiver/433Utils/RPi_utils/315-RFSnifferMQTT
+
+ [Install]
+ WantedBy=multi-user.target
