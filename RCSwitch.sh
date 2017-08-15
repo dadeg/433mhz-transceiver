@@ -129,9 +129,28 @@ remove_lock () {
 }
 
 
+# power up and down for the power to the transmitter
+# this is needed because transmitter and receiver interfer with each other if both powered.
+power_up_transmitter () {
+	# Pin - wiringPi pin 0 is BCM_GPIO 17.
+	PIN=27
+	gpio mode $PIN out
+	gpio write $PIN 1
+}
+
+power_down_transmitter () {
+	# Pin - wiringPi pin 0 is BCM_GPIO 17.
+	PIN=27
+	gpio mode $PIN out
+	gpio write $PIN 0
+}
+
+
 #run the codesend command n times to ensure the switch doesn't miss the command
 
 create_lock_or_wait
+
+power_up_transmitter
 
 for i in {1..5}
 do
@@ -140,6 +159,8 @@ do
 		sudo /opt/433mhz-transceiver/433Utils/RPi_utils/codesend $code
 	done
 done
+
+power_down_transmitter
 
 remove_lock
 
