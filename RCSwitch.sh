@@ -133,16 +133,28 @@ remove_lock () {
 # this is needed because transmitter and receiver interfer with each other if both powered.
 power_up_transmitter () {
 	# Pin - wiringPi pin 0 is BCM_GPIO 17.
-	PIN=27
-	gpio mode $PIN out
-	gpio write $PIN 1
+	TRANSMITTER_PIN=27
+	gpio mode $TRANSMITTER_PIN out
+	gpio write $TRANSMITTER_PIN 1
 }
 
 power_down_transmitter () {
 	# Pin - wiringPi pin 0 is BCM_GPIO 17.
-	PIN=27
-	gpio mode $PIN out
-	gpio write $PIN 0
+	TRANSMITTER_PIN=27
+	gpio mode $TRANSMITTER_PIN out
+	gpio write $TRANSMITTER_PIN 0
+}
+
+power_up_receiver() {
+	RECEIVER_PIN=28
+	gpio mode $RECEIVER_PIN out
+	gpio write $RECEIVER_PIN 1
+}
+
+power_down_receiver() {
+	RECEIVER_PIN=28
+	gpio mode $RECEIVER_PIN out
+	gpio write $RECEIVER_PIN 0
 }
 
 
@@ -150,6 +162,7 @@ power_down_transmitter () {
 
 create_lock_or_wait
 
+power_down_receiver
 power_up_transmitter
 
 for i in {1..5}
@@ -161,6 +174,7 @@ do
 done
 
 power_down_transmitter
+power_up_receiver
 
 remove_lock
 
