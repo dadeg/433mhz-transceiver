@@ -165,7 +165,8 @@ create_lock_or_wait
 power_down_receiver
 power_up_transmitter
 
-for i in {1..5}
+#for i in {1..5}
+for i in {1..1}
 do
    for code in "${codesToSend[@]}"
 	do   
