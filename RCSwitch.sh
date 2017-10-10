@@ -166,7 +166,7 @@ power_down_receiver
 power_up_transmitter
 
 #for i in {1..5}
-for i in {1..1}
+for i in {1..2}
 do
    for code in "${codesToSend[@]}"
 	do   
